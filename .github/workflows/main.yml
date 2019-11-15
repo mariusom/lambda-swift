@@ -3,9 +3,19 @@ name: CI
 on: [push]
 
 jobs:
+  publishing-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Update Docker hub metadata
+        uses: docker://mpepping/docker-hub-metadata-github-action
+        env:
+          IMAGE: ${{ github.repository }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
       - name: Build
