@@ -10,7 +10,7 @@ jobs:
       - name: Update Docker hub metadata
         uses: docker://mpepping/docker-hub-metadata-github-action
         env:
-          IMAGE: ${{ github.repository }}
+          IMAGE: mariusomdev/lambda-swift
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
