@@ -16,7 +16,7 @@ mkdir -p .${ARTIFACT_FOLDER}/${ARTIFACT_LAYER_FOLDER}
 swift build --configuration ${CONFIGURATION} --build-path ${BUILD_FOLDER}
 
 find ${BUILD_FOLDER}/${CONFIGURATION}/ -type f -executable -exec cp {} ${PWD}/${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ \;
-find ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ -executable -exec zip -j '{}'.zip '{}' \;
-find ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ -executable -exec rm '{}' \;
+find ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ -type f -executable -exec zip -j '{}'.zip '{}' \;
+find ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ -type f -executable -exec rm '{}' \;
 
 
