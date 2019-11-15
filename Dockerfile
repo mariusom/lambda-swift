@@ -8,6 +8,9 @@ RUN apt-get -qq update && apt-get -q -y install \
   libicu-dev \
   zip
 
+VOLUME ["/src"]
+WORKDIR /src
+
 ADD assets /assets
 ADD build.sh /usr/local/bin/
 
