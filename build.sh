@@ -13,7 +13,7 @@ ARTIFACT_LAYER_FOLDER=${ARTIFACT_LAYER_FOLDER:-layer}
 
 case "$1" in
 
-  build) echo "Build: started \"swift build --configuration ${CONFIGURATION}\""
+  build) echo "Build: Started \"swift build --configuration ${CONFIGURATION}\""
 
     rm -rf ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/
     mkdir -p ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}
@@ -53,7 +53,7 @@ case "$1" in
 
     echo "Layer: Finish packing the swift layer."
 
-    echo "Layer: all done"
+    echo "Layer: All done"
     ;;
 
   *) echo "Entrypoint commands skipped executing provided command:"
