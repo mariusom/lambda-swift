@@ -39,7 +39,7 @@ case "$1" in
 
     SHARED_LIBRARIES=$(cat /assets/swift-shared-libraries.txt | tr '\n' ' ')
     SHARED_LIBS_FOLDER=swift-shared-libs
-    LAYER_TEMP_OUTPUT_FOLDER=${ARTIFACT_FOLDER}/${ARTIFACT_LAYER_FOLDER}/layer-temp
+    LAYER_TEMP_OUTPUT_FOLDER=${ARTIFACT_FOLDER}/${ARTIFACT_LAYER_FOLDER}/swift-layer
 
     mkdir -p $LAYER_TEMP_OUTPUT_FOLDER/$SHARED_LIBS_FOLDER/lib
 
@@ -47,9 +47,10 @@ case "$1" in
     cp /lib64/ld-linux-x86-64.so.2 $LAYER_TEMP_OUTPUT_FOLDER/$SHARED_LIBS_FOLDER/
     cp -t $LAYER_TEMP_OUTPUT_FOLDER/$SHARED_LIBS_FOLDER/lib $SHARED_LIBRARIES
 
-    zip -rqj ${ARTIFACT_FOLDER}/${ARTIFACT_LAYER_FOLDER}/layer.zip $LAYER_TEMP_OUTPUT_FOLDER
-
-    rm -r $LAYER_TEMP_OUTPUT_FOLDER
+    cd ${ARTIFACT_FOLDER}/${ARTIFACT_LAYER_FOLDER}
+    zip -rq layer.zip swift-layer
+    rm -r swift-layer
+    cd -
 
     echo "Layer: Finish packing the swift layer."
 
