@@ -24,7 +24,7 @@ case "$1" in
     echo "Build: Started packaging the build"
 
     find ${BUILD_FOLDER}/${CONFIGURATION}/ -type f -executable -exec cp {} ${PWD}/${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ \;
-    find ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ -type f -executable -exec zip -j '{}'.zip '{}' \;
+    find ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ -type f -executable -exec zip -qj '{}'.zip '{}' \;
     find ${ARTIFACT_FOLDER}/${ARTIFACT_LAMBDA_FOLDER}/ -type f -executable -exec rm '{}' \;
 
     echo "Build: Finished packing the build"
@@ -47,7 +47,7 @@ case "$1" in
     cp /lib64/ld-linux-x86-64.so.2 $LAYER_TEMP_OUTPUT_FOLDER/$SHARED_LIBS_FOLDER/
     cp -t $LAYER_TEMP_OUTPUT_FOLDER/$SHARED_LIBS_FOLDER/lib $SHARED_LIBRARIES
 
-    zip -rj ${ARTIFACT_FOLDER}/${ARTIFACT_LAYER_FOLDER}/layer.zip $LAYER_TEMP_OUTPUT_FOLDER
+    zip -rqj ${ARTIFACT_FOLDER}/${ARTIFACT_LAYER_FOLDER}/layer.zip $LAYER_TEMP_OUTPUT_FOLDER
 
     rm -r $LAYER_TEMP_OUTPUT_FOLDER
 
