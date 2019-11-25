@@ -1,4 +1,4 @@
-VERSION ?= 0.0.9
+VERSION ?= 0.0.10
 SWIFT_VERSION ?= 5.1.2
 REPO ?= mariusomdev/lambda-swift
 TAG ?= "$(REPO):$(VERSION)-swift-$(SWIFT_VERSION)"

@@ -12,6 +12,4 @@ VOLUME ["/src"]
 WORKDIR /src
 
 ADD assets /assets
-ADD build.sh /usr/local/bin/
-
-ENTRYPOINT ["/usr/local/bin/build.sh"]
+ADD scripts /usr/local/bin
