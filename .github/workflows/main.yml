@@ -3,16 +3,19 @@ name: CI
 on: [push]
 
 jobs:
-  publishing-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Update Docker hub metadata
-        uses: docker://mpepping/docker-hub-metadata-github-action
-        env:
-          IMAGE: mariusomdev/lambda-swift
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  # Deactivated docker hub autimatic description publishing.
+  # Reason: https://github.com/docker/hub-feedback/issues/1927
+  #
+  # publishing-docs:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
+  #     - name: Update Docker hub metadata
+  #       uses: docker://mpepping/docker-hub-metadata-github-action
+  #       env:
+  #         IMAGE: mariusomdev/lambda-swift
+  #         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  #         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
   build:
     runs-on: ubuntu-latest
